@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^14.0.1",
+    "angular-bootstrap": "^0.12.2"
+  }
+}
