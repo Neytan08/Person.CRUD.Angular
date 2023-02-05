@@ -1,0 +1,46 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>Manage Persons</b></h4>
+            </div>
+            <br>
+            <div class="col-sm-10">
+              <button class="btn btn-success" (click)="AddPerson()">
+                <i class='fas fa-plus-circle'></i><span> ADD</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped table-hover table-bordered table-content">
+          <thead>
+            <tr class="center-align">
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Marital Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Person of personList" class="center-align">
+              <td>{{ Person.name.value}}</td>
+              <td>{{ Person.phone.value}}</td>
+              <td>{{ Person.address.value}}</td>
+              <td>{{ Person.maritalStatus.value}}</td>
+              <td>
+                <a href="#" [routerLink]="['/ViewPerson/', Person.id]" class="btn"><i class='fas fa-eye view'></i></a>
+                <a href="#" [routerLink]="['/EditPerson/', Person.id]" class="btn"><i class="fa fa-edit edit"></i></a>
+                <button type="button" (click)="deletePersonConfirmation(Person)" class="btn"><i class='fas fa-trash-alt delete'></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td *ngIf="personList.length == 0" colspan="6">No Persons Found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
