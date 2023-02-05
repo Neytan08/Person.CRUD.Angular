@@ -33,7 +33,7 @@ const MODALS: { [name: string]: Type<any> } = {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   closeResult = '';
@@ -68,18 +68,19 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['AddPerson']);
   }
 
-  deletePersonConfirmation(person: any) {
+  deletePersonConfirmation(id: number) {
     this.modalService.open(MODALS['deleteModal'],
       {
         ariaLabelledBy: 'modal-basic-title'
       }).result.then((result) => {
-        this.deletePerson(person);
+        this.deletePerson(id);
+        this.getAllPerson();
       },
         (reason) => {});
   }
 
-  deletePerson(person: any) {
-    this.httpProvider.deletePersonById(person.id).subscribe((data : any) => {
+  deletePerson(id: number) {
+    this.httpProvider.deletePersonById(id).subscribe((data : any) => {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData != null && resultData.isSuccess) {
