@@ -1,0 +1,18 @@
+
+
+export class Person {
+    personId:number;
+    personName:string;
+    personPhone:number;
+    personAddress:string;
+    personMaritalStatus:string;
+    
+    constructor(personId:number,personName:string,personPhone:number,
+        personAddress:string,personMaritalStatus:string){
+            this.personId=personId;
+            this.personName=personName;
+            this.personPhone=personPhone;
+            this.personAddress=personAddress;
+            this.personMaritalStatus=personMaritalStatus;
+    }
+}
