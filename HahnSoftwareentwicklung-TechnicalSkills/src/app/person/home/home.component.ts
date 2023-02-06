@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['AddPerson']);
   }
 
-  deletePersonConfirmation(id: number) {
+  deletePersonConfirmation(id: any) {
     this.modalService.open(MODALS['deleteModal'],
       {
         ariaLabelledBy: 'modal-basic-title'
