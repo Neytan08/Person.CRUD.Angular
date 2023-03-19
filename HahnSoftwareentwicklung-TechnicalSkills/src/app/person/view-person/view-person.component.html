@@ -1,52 +1,38 @@
 <div class="container-xl">
-    <div class="table-responsive">
-      <div class="table-wrapper">
-        <div class="table-title">
-          <div class="row">
-            <div class="col-sm-6">
-              <h4><b>View Person</b></h4>
-            </div>
-            <div class="col-sm-6">
-              <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
-            </div>
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>View Person</b></h4>
           </div>
-        </div>       
-        <table class="table table-striped table-hover table-bordered table-content">
-          <tbody>
-            <tr>
-              <td>
-                <label><b>Name</b></label>
-              </td>
-              <td>
-                <span>{{ personDetail.name }}</span>              
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label><b>Phone</b></label>
-              </td>
-              <td>
-                <span>{{ personDetail.phone }}</span>              
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label><b>Address</b></label>
-              </td>
-              <td>
-                <span>{{ personDetail.address }}</span>              
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label><b>Marital Status</b></label>
-              </td>
-              <td>
-                <span>{{ personDetail.maritalStatus }}</span>              
-              </td>
-            </tr>
-          </tbody>
-        </table>       
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Back</a>
+          </div>
+        </div>
       </div>
+      <table class="table table-striped table-hover table-bordered table-content">
+        <thead>
+          <tr class="center-align">
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Marital Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Person of personDetail" class="center-align">
+            <td>{{ personDetail.name}}</td>
+            <td>{{ personDetail.phone}}</td>
+            <td>{{ personDetail.address}}</td>
+            <td>{{ personDetail.maritalStatus}}</td>
+          </tr>
+          <tr>
+            <td *ngIf="personDetail.length == 0" colspan="6">No Persons Found</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

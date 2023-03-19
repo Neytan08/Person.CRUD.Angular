@@ -25,7 +25,7 @@ export class HttpProviderService {
     return this.webApiService.delete(httpLink.deletePersonById + id);
   }
   public getPersonById(id: number): Observable<any> {
-    return this.webApiService.get(httpLink.getPersonById + id);
+    return this.webApiService.get(httpLink.getPersonById + '?personId=' + id );
   }
   public savePerson(model: any): Observable<any> {
     return this.webApiService.post(httpLink.savePerson, model);

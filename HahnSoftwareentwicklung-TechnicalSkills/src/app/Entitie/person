@@ -15,4 +15,8 @@ export class Person {
             this.personAddress=personAddress;
             this.personMaritalStatus=personMaritalStatus;
     }
+    toString() {
+        return this.personId ? `${this.personId}`
+        : "";
+    }
 }

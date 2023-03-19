@@ -22,7 +22,7 @@
                 <input type="text" class="form-control" id="Name" required maxlength="255"
                   [(ngModel)]="addPersonForm.Name" name="Name" #Name="ngModel">
                 <div *ngIf="Name.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!Name.errors?.['required']">
+                  <div [hidden]="!Name.errors['required']">
                     Name is required
                   </div>
                 </div>
@@ -36,10 +36,10 @@
                   <input type="text" class="form-control" id="Phone" required maxlength="10"
                     [(ngModel)]="addPersonForm.Phone" name="Phone" #Phone="ngModel" pattern="^\d{2}\d{2}\d{4}$">
                   <div *ngIf="Phone.errors && isSubmitted" class="alert alert-danger validationError">
-                    <div [hidden]="!Phone.errors?.['required']">
+                    <div [hidden]="!Phone.errors['required']">
                       Phone is required
                     </div>
-                    <div [hidden]="!Phone.errors?.['touched'] && !Phone.errors?.['pattern']">
+                    <div [hidden]="!Phone.errors['touched'] && !Phone.errors['pattern']">
                       Phone is invalid
                     </div>
                   </div>
@@ -53,7 +53,7 @@
                   <textarea class="form-control" id="Address" required [(ngModel)]="addPersonForm.Address" name="Address"
                     #Address="ngModel">></textarea>
                   <div *ngIf="Address.errors && isSubmitted" class="alert alert-danger validationError">
-                    <div [hidden]="!Address.errors?.['required']">
+                    <div [hidden]="!Address.errors['required']">
                       Address is required
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                   <input type="text" class="form-control" id="MaritalStatus" required maxlength="10"
                     [(ngModel)]="addPersonForm.MaritalStatus" name="MaritalStatus" #MaritalStatus="ngModel">
                   <div *ngIf="MaritalStatus.errors && isSubmitted" class="alert alert-danger validationError">
-                    <div [hidden]="!MaritalStatus.errors?.['required']">
+                    <div [hidden]="!MaritalStatus.errors['required']">
                         MaritalStatus is required
                     </div>
                   </div>

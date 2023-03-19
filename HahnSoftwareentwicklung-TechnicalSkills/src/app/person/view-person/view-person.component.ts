@@ -10,18 +10,20 @@ import { WebApiService } from '../../service/Service/web-api.service';
 })
 export class ViewPersonComponent implements OnInit{
 
-  personId: any;
+  personId: any = [];
   personDetail : any= [];
    
   constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider : HttpProviderService) { }
   
   ngOnInit(): void {
-    this.personId = this.route.snapshot.params;      
-    this.getPersonById(this.personId);
+    this.personId = this.route.snapshot.params;
+    //this.personId = this.route.snapshot.params['id'];
+
+    this.getPersonById();
   }
 
-  getPersonById(id: number) {       
-    this.httpProvider.getPersonById(id).subscribe((data : any) => {      
+  getPersonById() {       
+    this.httpProvider.getPersonById(this.personId).subscribe((data : any) => {      
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
